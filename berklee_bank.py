@@ -60,7 +60,7 @@ Side Effects (print/display): prints "Do you want to depsit, withdraw, get balan
 Return: the string the user typed in 
 '''
 def get_menu_choice():
-    choice = input("Do you want to... Deposit - Withdraw - Balance - Quit ")
+    choice = input("Do you want to... Deposit Withdraw Balance Quit ")
     return choice
 
 '''
@@ -128,23 +128,26 @@ def run_tests():
 
 def main(): 
     print_welcome()
-    name = get_username
-    pin = get_pin
+    name = get_username()
+    pin = get_pin()
     valid = verify_identity(name, pin)   
     if not valid:
         return
     
     while True:
         users_choice = get_menu_choice()
-        if users_choice == "balance":
+        if users_choice == "Balance":
             get_balance(name)
 
-        elif users_choice == "deposit":
+        elif users_choice == "Deposit":
             deposit_money(name)
 
-        elif users_choice == "deposit":
-            deposit_money(name)
+        elif users_choice == "Withdraw":
+            withdraw_money(name)
 
+        elif users_choice == "Quit":
+            break
+        
         else: 
             print("You can't choose that...")
         
